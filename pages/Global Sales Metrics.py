@@ -18,7 +18,7 @@ st.set_page_config(page_title="Sales Metrics",page_icon = r'./images/Orange_favi
 
 st.markdown(f'<p style="color:#FF7900;font-size:100px;">{"Base CA"}</p>', unsafe_allow_html=True)
 
-df_baseCA = pd.read_csv(r'./csv_output/base_ca_anonymise.csv', sep=",")
+df_baseCA = pd.read_csv(r'./csv_output/base_ca_anonymise.csv', sep=";",encoding='utf-8')
 
 df_baseCA.Vendeur= df_baseCA.Vendeur.str.upper()
 columns = ['Vendeur']+df_baseCA.columns[-6:].tolist()
