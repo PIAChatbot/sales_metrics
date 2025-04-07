@@ -310,7 +310,7 @@ df_test_matching = pd.read_csv(r'./population/test_matching.csv',sep=';')
 df_merged_df_baseCA_vendeur_grp = pd.merge(df_baseCA_vendeur_grp,df_test_matching, on = 'Nom Groupe', how = "left")
 df_merged_df_baseCA_vendeur_grp['Ville'] = df_merged_df_baseCA_vendeur_grp['Ville'].apply(normalize_text).str.replace("'", '')
 
-df_communes = pd.read_csv(r'./population/donnees_communes_2022.csv', sep=';', encoding='ansi')
+df_communes = pd.read_csv(r'./population/donnees_communes_2022.csv', sep=';', encoding='utf-8')
 df_communes = df_communes[df_communes['DEP'].isin([8, 10, 51, 52, 54, 55, 57, 67, 68, 88])]
 df_communes['commune_norm'] = df_communes['Commune'].apply(normalize_text).str.replace("'", '') 
 
