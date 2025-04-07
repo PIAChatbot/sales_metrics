@@ -38,7 +38,7 @@ with col2:
         </style>
     """, unsafe_allow_html=True)
 
-    df_baseCA = pd.read_csv(r'./csv_output/base_ca_anonymise.csv', sep=",")
+    df_baseCA = pd.read_csv(r'./csv_output/base_ca_anonymise.csv', sep=";",encoding='utf-8')
 
     df_baseCA.Vendeur= df_baseCA.Vendeur.str.upper()
     selectbox_vendeur = st.selectbox(" ", df_baseCA.Vendeur.unique(), key="global_1")  # Selectbox sans label
