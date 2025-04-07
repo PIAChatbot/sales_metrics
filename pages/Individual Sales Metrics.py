@@ -72,26 +72,26 @@ fig1.add_trace(go.Scatter(x=df_baseCA_vendeur_grp["Domaine"],
                             text=df_baseCA_vendeur_grp["Percentage"].map(lambda x: f'{x:.1f}%'),
                             name='Percentage CA'))
 
-fig1.update_layout(title={'text': "Répartition du CA par domaine pour le dernier semestre",
-           'font_color':"white",
-           'font_size': 35},
-    font=dict(color='#FF7900'),
-    xaxis=dict(title='Domaine',
-        titlefont=dict(color='#FF7900'),
-        showgrid=False),
-    yaxis= dict(title='Total CA',
-        titlefont=dict(color='#FF7900'),
-        showgrid=True),
-    legend=dict(\
-        orientation="h",
-        yanchor="bottom",
-        y=-0.12,
-        xanchor="left",
-        x=0),
-    legend_title_text='',
-    hovermode="x",
-    height=900,
-    margin=dict(l=70, r=70, t=100, b=70))
+# fig1.update_layout(title={'text': "Répartition du CA par domaine pour le dernier semestre",
+#            'font_color':"white",
+#            'font_size': 35},
+#     font=dict(color='#FF7900'),
+#     xaxis=dict(title='Domaine',
+#         titlefont=dict(color='#FF7900'),
+#         showgrid=False),
+#     yaxis= dict(title='Total CA',
+#         titlefont=dict(color='#FF7900'),
+#         showgrid=True),
+#     legend=dict(\
+#         orientation="h",
+#         yanchor="bottom",
+#         y=-0.12,
+#         xanchor="left",
+#         x=0),
+#     legend_title_text='',
+#     hovermode="x",
+#     height=900,
+#     margin=dict(l=70, r=70, t=100, b=70))
     
 tab1.plotly_chart(fig1)
 
@@ -146,26 +146,26 @@ fig2.add_trace(go.Scatter(x=df_baseCA_vendeur_grp["Nom Groupe"],
                             text=df_baseCA_vendeur_grp["Percentage"].map(lambda x: f'{x:.1f}%'),
                             name='Percentage CA'))
 
-fig2.update_layout(title={'text': "Top "+selectbox2+" Clients par CA pour le dernier semestre",
-           'font_color':"white",
-           'font_size': 35},
-    font=dict(color='#FF7900'),
-    xaxis=dict(title='Nom Groupe',
-        titlefont=dict(color='#FF7900'),
-        showgrid=False),
-    yaxis= dict(title='Total CA',
-        titlefont=dict(color='#FF7900'),
-        showgrid=True),
-    legend=dict(\
-        orientation="h",
-        yanchor="bottom",
-        y=-0.12,
-        xanchor="left",
-        x=0),
-    legend_title_text='',
-    hovermode="x",
-    height=900,
-    margin=dict(l=70, r=70, t=100, b=70))
+# fig2.update_layout(title={'text': "Top "+selectbox2+" Clients par CA pour le dernier semestre",
+#            'font_color':"white",
+#            'font_size': 35},
+#     font=dict(color='#FF7900'),
+#     xaxis=dict(title='Nom Groupe',
+#         titlefont=dict(color='#FF7900'),
+#         showgrid=False),
+#     yaxis= dict(title='Total CA',
+#         titlefont=dict(color='#FF7900'),
+#         showgrid=True),
+#     legend=dict(\
+#         orientation="h",
+#         yanchor="bottom",
+#         y=-0.12,
+#         xanchor="left",
+#         x=0),
+#     legend_title_text='',
+#     hovermode="x",
+#     height=900,
+#     margin=dict(l=70, r=70, t=100, b=70))
     
 tab2.plotly_chart(fig2)
 
