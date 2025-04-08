@@ -425,3 +425,18 @@ else :
     df5_2 = df5_2.fillna('')
 
     tab5.table(df5_2)
+    
+tab5.header('Interco Sites')
+
+if df5.empty:
+    pass
+else : 
+    adresse = str(df5.ADRESSE.values[0])
+    tab5.write('SIREN : #########')
+
+    tab5.write('ADRESSE : '+adresse)
+
+    df5_2 = pd.read_csv(r'./csv_output/interco_sites.csv', sep=";",encoding='utf-8')
+    df5_2 = df5_2.fillna('')
+
+    tab5.table(df5_2)
