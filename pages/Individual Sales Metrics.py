@@ -46,10 +46,11 @@ with col2:
 selectbox_REC = st.multiselect("Récurrence", df_baseCA['CA Récurrent'].unique(), default=df_baseCA['CA Récurrent'].unique().tolist(), key="global_2")  # Selectbox sans label
 
 
-tab1, tab2, tab3, tab4= st.tabs(["CA Général",
+tab1, tab2, tab3, tab4, tab5= st.tabs(["CA Général",
  "Top Client par CA",
  "Top Client par Domaine",
- "Balance CA",
+ "Feuille de route",
+ "Focus Client",
 ])
 
 
@@ -371,18 +372,56 @@ tab4.markdown("""
     Ce tableau vous aidera à déterminer les priorités et à concentrer vos efforts sur les domaines les plus stratégiques.
 """)
 
+tab4.header("Meilleur CA au regard du bassin de population")
+tab4.write(stat.sort_values('z_score',ascending=False).head())
 
-selectbox4 = tab4.selectbox('Nom Groupe', stat['Nom Groupe'].unique(),key = "4_1")
 
-fig4 = px.pie(stat, values='CA', names='Domaine')
-fig4.update_layout(
-    title={'text': selectbox4,
+
+
+
+
+#-------------------------------------------------------------------------
+
+
+tab5.title('Focus Client')
+
+selectbox5 = tab5.selectbox('Nom Groupe', stat['Nom Groupe'].unique(),key = "5_1")
+
+fig5 = px.pie(stat, values='CA', names='Domaine')
+fig5.update_layout(
+    title={'text': selectbox5,
            'font_color':'#FF7900',
            'font_size': 35},
     showlegend=True,  # Afficher une seule légende
     legend=dict(orientation="h", yanchor="bottom", y=-0.2, x=0.5, xanchor="center"),
     height=700)
-tab4.plotly_chart(fig4)
+tab5.plotly_chart(fig5)
 
-tab4.header("Meilleur CA au regard du bassin de population")
-tab4.write(stat.sort_values('z_score',ascending=False).head())
+tab5.markdown('____________')
+
+tab5.header("Cybersécurité (Exemple)")
+
+df5 = pd.read_csv(r'./csv_output/cybersecurity.csv', sep=";",encoding='utf-8')
+df5=df5.fillna('')
+
+df5=df5[df5.index==selectbox5]
+
+tab5.table(df5)
+
+tab5.markdown('____________')
+
+
+tab5.header('Accès Internet')
+
+if df5.empty:
+    pass
+else : 
+    adresse = str(df5.ADRESSE.values[0])
+    tab5.write('SIREN : #########')
+
+    tab5.write('ADRESSE : '+adresse)
+
+    df5_2 = pd.read_csv(r'./csv_output/acces_internet.csv', sep=";",encoding='utf-8')
+    df5_2 = df5_2.fillna('')
+
+    tab5.table(df5_2)
